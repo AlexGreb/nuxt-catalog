@@ -1,6 +1,5 @@
 <script setup>
   import { onBeforeRouteLeave } from 'vue-router';
-  import {useBrandsStore} from "../../stores/brands.js";
   const brandsStore = useBrandsStore();
   onBeforeRouteLeave(() => {
     brandsStore.resetSelectedBrands();

@@ -1,6 +1,4 @@
 <script setup>
-  import FilterLabel from "../filter-label/FilterLabel.vue";
-
   const brandsStore = useBrandsStore();
   await brandsStore.fetchBrands();
 </script>
