@@ -1,0 +1,28 @@
+{
+  "name": "nuxtjs_project",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "npx json-server ./db/db.json5 -p 3001 --watch & nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxt/image": "^1.11.0",
+    "@nuxt/typescript-build": "^3.0.2",
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "@pinia/nuxt": "^0.11.2",
+    "nuxt": "^4.2.0",
+    "pinia": "^3.0.3",
+    "vue": "^3.5.22",
+    "vue-router": "^4.6.3"
+  },
+  "devDependencies": {
+    "json-server": "^1.0.0-beta.3",
+    "nuxt-svgo-loader": "^0.6.3",
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.1.2"
+  }
+}

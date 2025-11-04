@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+    @apply h-full;
+}
+
+@layer utilities {
+    .w-container {
+        min-width: 320px;
+        max-width: 1500px;
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+#__nuxt {
+    @apply grid grid-rows-[auto__1fr__auto] items-start min-h-full;
+}
+
+button {
+    font-family: inherit;
+}
+
+img {
+    height: auto;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
+}

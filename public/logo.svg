@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" width="300" height="80" role="img" aria-labelledby="logoTitle2">
+  <style>
+    .txt { font: 300 48px/1 "Inter", "Helvetica Neue", Arial, sans-serif; letter-spacing: 8px; fill:none; stroke:#fff; stroke-width:2; }
+  </style>
+  <text class="txt" x="0" y="50%" dominant-baseline="middle" text-anchor="start">MODO</text>
+</svg>
