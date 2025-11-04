@@ -1,5 +1,4 @@
 <script setup>
-  import {formatPrice} from "../../utils/product.js";
 
   const productStore = useProductStore();
   const cartStore = useCartStore();
