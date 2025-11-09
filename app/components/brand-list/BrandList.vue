@@ -11,7 +11,7 @@
           v-for="brand in brandsStore.brands"
           :key="brand.id">
         <FilterLabel :is-selected="brandsStore.selectedBrandsId.has(brand.id)"
-                     @click="() => brandsStore.toggleSelectedBrand(brand.id)">
+                     @click="brandsStore.toggleSelectedBrand(brand.id)">
           {{brand.title}}
         </FilterLabel>
       </li>

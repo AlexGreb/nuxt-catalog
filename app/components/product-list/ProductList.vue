@@ -61,7 +61,7 @@
             In cart
           </NuxtLink>
           <Button v-else
-                  @click="() => cartStore.addToCart(product)"
+                  @click="cartStore.addToCart(product)"
                   class="mt-2 w-full">
             Buy
           </Button>

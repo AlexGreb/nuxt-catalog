@@ -52,7 +52,7 @@
       </span>
       </div>
       <div class="flex justify-end mt-2">
-        <Button @click="() => cartStore.clearCart()">
+        <Button @click="cartStore.clearCart()">
           Checkout
         </Button>
       </div>
