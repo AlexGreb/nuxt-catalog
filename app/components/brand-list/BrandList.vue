@@ -1,6 +1,5 @@
 <script setup>
   const brandsStore = useBrandsStore();
-  await brandsStore.fetchBrands();
 </script>
 
 <template>
