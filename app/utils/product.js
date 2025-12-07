@@ -1,15 +1,15 @@
-const mapCurrency = {
-    'USD': '$'
-}
-export const getCurrencySymbol = (currencyString) => {
-    return mapCurrency[currencyString];
-}
+const currencyStrategies = {
+    USD: new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumIntegerDigits: 2,
+        minimumFractionDigits: 2
+    }),
+};
 
-export const formatPrice = (value, currencyString) => {
-    const symbol = getCurrencySymbol(currencyString);
-    if(symbol === '$') {
-        return `${symbol}${value}`
-    }
 
-    return `${value}${symbol}`;
+export function formatPrice (price, type) {
+    const strategy = currencyStrategies[type];
+    if (!strategy) throw new Error("Unknown strategy: " + type);
+    return strategy.format(price)
 }

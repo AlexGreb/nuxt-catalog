@@ -1,7 +1,5 @@
 export const useCartStore = defineStore('cartStore', () => {
     const cartItems = ref([]);
-
-
     const getCartItemsCount = computed(()=> {
         const count = cartItems.value.reduce((acc, it) => {
             return it.amount + acc
@@ -17,15 +15,14 @@ export const useCartStore = defineStore('cartStore', () => {
     });
 
     const totalPrice = computed(() => {
-        const total = cartItems.value.reduce((total, item) => {
+        return cartItems.value.reduce((total, item) => {
             return total + (item.regular_price.value * item.amount)
         }, 0);
-        return total.toFixed(2)
     });
 
     const totalItemPrice = computed(() => {
         return (product) => {
-            return (product.regular_price.value * product.amount).toFixed(2);
+            return product.regular_price.value * product.amount;
         }
     })
 
@@ -54,8 +51,6 @@ export const useCartStore = defineStore('cartStore', () => {
     function clearCart() {
         cartItems.value = [];
     }
-
-
 
 
     return {
