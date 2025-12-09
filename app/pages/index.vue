@@ -5,9 +5,9 @@ const route = useRoute();
 
 brandsStore.setBrandFilterByQuery();
 watch(
-    () => route.query,
+    () => route.query.brand,
     (newQuery, oldQuery) => {
-      if(newQuery.brand !== oldQuery.brand) {
+      if(newQuery !== oldQuery) {
         brandsStore.setBrandFilterByQuery();
       }
     }
