@@ -19,37 +19,37 @@
         </div>
         <div class="text-2xl mt-2">{{product.title}}</div>
         <div class="text-sm mt-1">{{product.brand.title}}</div>
-<!--        <div v-if="product.type === 'configurable'">-->
-<!--          <div v-for="option in product.configurable_options"-->
-<!--               :key="option.attribute_code">-->
-<!--            <div v-if="option.attribute_code === 'color'"-->
-<!--                 class="flex mt-3 gap-1">-->
-<!--              <button-->
-<!--                  v-for="value in option.values"-->
-<!--                  :key="value.value_index"-->
-<!--                  class="flex justify-center items-center aspect-square border border-gray rounded-full w-[25px] h-[25px]"-->
-<!--                  type="button"-->
-<!--                  :title="value.label">-->
-<!--                      <span class="block aspect-square rounded-full w-[20px] h-[20px]"-->
-<!--                            :style="{ backgroundColor: value.value }">-->
-<!--                      </span>-->
-<!--              </button>-->
-<!--            </div>-->
-<!--            <div v-if="option.attribute_code === 'size'"-->
-<!--                 class="mt-3 gap-2 flex">-->
-<!--              <button-->
-<!--                  v-for="value in option.values"-->
-<!--                  type="button"-->
-<!--                  :key="value.value_index"-->
-<!--                  class="border border-gray px-2 py-1"-->
-<!--                  :title="value.label"-->
-<!--              >-->
-<!--                {{value.label}}-->
-<!--              </button>-->
-<!--            </div>-->
-<!--          </div>-->
+        <div v-if="product.type === 'configurable'">
+          <div v-for="option in product.configurable_options"
+               :key="option.attribute_code">
+            <div v-if="option.attribute_code === 'color'"
+                 class="flex mt-3 gap-1">
+              <button
+                  v-for="value in option.values"
+                  :key="value.value_index"
+                  class="flex justify-center items-center aspect-square border border-gray rounded-full w-[25px] h-[25px]"
+                  type="button"
+                  :title="value.label">
+                      <span class="block aspect-square rounded-full w-[20px] h-[20px]"
+                            :style="{ backgroundColor: value.value }">
+                      </span>
+              </button>
+            </div>
+            <div v-if="option.attribute_code === 'size'"
+                 class="mt-3 gap-2 flex">
+              <button
+                  v-for="value in option.values"
+                  type="button"
+                  :key="value.value_index"
+                  class="border border-gray px-2 py-1"
+                  :title="value.label"
+              >
+                {{value.label}}
+              </button>
+            </div>
+          </div>
 
-<!--        </div>-->
+        </div>
         <div v-if="product.regular_price.value"
              class="text-lg mt-2 font-bold">
           {{formatPrice(product.regular_price.value, productStore.currentCurrency)}}

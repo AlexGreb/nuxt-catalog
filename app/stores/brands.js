@@ -14,12 +14,13 @@ export const useBrandsStore = defineStore('brandsStore', () => {
     }
 
     function toggleSelectedBrand (brandId) {
-        const querySet = new Set(route.query.brand ? route.query.brand.split(','): []);
+        const brandIds = route.query.brand ?? [];
+        const querySet = new Set(brandIds.map(Number));
         querySet[querySet.has(brandId) ? 'delete' : 'add'](brandId);
         router.push({
             query: {
                 ...route.query,
-                brand: Array.from(querySet).join(','),
+                brand: Array.from(querySet),
             },
         });
     }
@@ -33,19 +34,16 @@ export const useBrandsStore = defineStore('brandsStore', () => {
     }
 
     function getBrandsByIds(brandIds) {
-        const brandsSet = new Set(brandIds);
+        const brandsSet = new Set(parseInt(brandIds));
         return brands.value.filter((it) => {
             return brandsSet.has(it.id);
         })
     }
 
     function setBrandFilterByQuery() {
-        const queryBrand = route.query.brand;
-        let newBrandIds = [];
-        if(queryBrand?.length) {
-            newBrandIds = queryBrand.split(',');
-        }
-        setSelectedBrands(newBrandIds);
+        const queryBrand = route.query.brand ?? [];
+        const newQueryBrand = queryBrand.map(Number);
+        setSelectedBrands(newQueryBrand);
     }
 
     return {

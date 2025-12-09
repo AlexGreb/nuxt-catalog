@@ -11,16 +11,10 @@ export const useProductStore = defineStore('productStore', () => {
     // Getters
     const getProductsWithBrands = computed(() => {
         const brandMap = new Map(brandsStore.brands.map(brand => [brand.id, brand]));
-        products.value.map(product => {
-            return {
-                ...product,
-                brand: product.brand != null ? brandMap.get(product.brand.toString()) : null
-            }
-        })
 
         return products.value.map(product => ({
             ...product,
-            brand: product.brand != null ? brandMap.get(product.brand.toString()) : null
+            brand: product.brand != null ? brandMap.get(product.brand) : null
         }))
     });
 
@@ -37,10 +31,14 @@ export const useProductStore = defineStore('productStore', () => {
 
     // Actions
     async function fetchProducts() {
-        const res = await useFetch(`${config.public.apiHost}/products`);
-        products.value = res.data.value;
-    }
+        try {
+            const res = await useFetch(`${config.public.apiHost}/products`);
+            products.value = res.data.value;
+        } catch (e) {
+            throw new Error(e.message || e);
+        }
 
+    }
 
     return {
         // State
