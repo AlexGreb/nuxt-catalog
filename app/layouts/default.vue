@@ -1,4 +1,18 @@
 <script setup>
+//TODO
+const brandsStore = useBrandsStore();
+await brandsStore.fetchBrands();
+const route = useRoute();
+
+brandsStore.setBrandFilterByQuery();
+watch(
+    () => route.fullPath,
+    (newQuery, oldQuery) => {
+      if(newQuery !== oldQuery) {
+        brandsStore.setBrandFilterByQuery();
+      }
+    }
+);
 </script>
 
 <template>
